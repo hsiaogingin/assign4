@@ -110,11 +110,14 @@ size(640,480) ;
   
   fill(#CC0000);
   hpX = (205-10)*20/100; //10<=hpX<=205, at least 20 points of blood 
+  
   hp = loadImage("img/hp.png"); 
   
 }
 
 void draw() {
+  if(hpX>205){
+    hpX=205;}
 switch (state){
     case START:
       image(start2, 0, 0);
@@ -351,6 +354,8 @@ switch (state){
           
       
  case END:
+       treasureX = random(600);
+       treasureY = random(440);
       image(end2, 0, 0);
       if (mouseX >= width*96/300 && mouseX <= width*205/300 && mouseY >= height*257/400 && mouseY <= height*292/400){
         image(end1, 0, 0);
